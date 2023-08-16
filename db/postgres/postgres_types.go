@@ -177,6 +177,7 @@ type CompatibilityInfo struct {
 type Compatibility struct {
 	State string
 	Note  string
+	Multi string
 }
 
 type VersionTarget struct {

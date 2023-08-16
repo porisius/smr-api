@@ -4,14 +4,25 @@ enum CompatibilityState {
     Broken
 }
 
+enum MultiplayerState {
+    SinglePlayer
+    HostOnly
+    Unstable
+    Compatible
+    ClientOnly
+    ServerOnly
+}
+
 type Compatibility {
     state: CompatibilityState!
     note: String
+    multi: MultiplayerState!
 }
 
 input CompatibilityInput {
     state: CompatibilityState!
     note: String
+    multi: MultiplayerState!
 }
 
 type CompatibilityInfo {

@@ -268,6 +268,7 @@ func GenCompInfoToDBCompInfo(gen *generated.CompatibilityInfoInput) *postgres.Co
 func GenCompToDBComp(gen *generated.CompatibilityInput) postgres.Compatibility {
 	r := postgres.Compatibility{
 		State: string(gen.State),
+		Multi: string(gen.Multi),
 	}
 	SetINN(gen.Note, &r.Note)
 	return r
@@ -287,5 +288,6 @@ func DBCompToGenComp(db postgres.Compatibility) *generated.Compatibility {
 	return &generated.Compatibility{
 		State: generated.CompatibilityState(db.State),
 		Note:  &db.Note,
+		Multi: generated.MultiplayerState(db.Multi),
 	}
 }
